@@ -9,6 +9,7 @@ function renderMain() {
 
   renderHeader();
   renderHero();
+  renderMenu();
 }
 
 function renderHeader() {
@@ -21,4 +22,13 @@ function renderHero() {
   const heroRef = document.getElementById("hero");
 
   heroRef.innerHTML = getHeroTemplate();
+}
+
+function renderMenu() {
+  let menuContentRef = document.getElementById("menu_content");
+
+  menuContentRef.innerHTML = `
+    ${getCategoryTemplate()}
+    ${getProductCardTemplate()}
+  `;
 }
