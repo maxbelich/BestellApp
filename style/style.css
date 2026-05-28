@@ -119,14 +119,14 @@
 .product_card {
   width: 100%;
   max-width: 560px;
-  margin: 8px 0;
-  padding: 8px;
+  margin: 12px 0;
+  padding: 12px;
   display: grid;
   grid-template-columns: 130px 1fr 90px;
   column-gap: 12px;
   align-items: center;
   background: #fde8d7;
-  border-radius: 8px;
+  border-radius: 12px;
 }
 
 .product_img {
@@ -164,8 +164,9 @@
 }
 
 .product_price {
+  font-family: "Palanquin Dark", sans-serif;
   font-size: 14px;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .add_btn {
@@ -173,7 +174,9 @@
   border: none;
   border-radius: 999px;
   background: white;
+  font-family: "Palanquin Dark", sans-serif;
   font-size: 10px;
+  font-weight: 600;
   cursor: pointer;
 }
 
@@ -182,4 +185,43 @@
   color: white;
   border-radius: 20px;
   margin-top: 0;
+}
+
+.category_bar h2 {
+  font-family: "Palanquin Dark", sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.product_info h3 {
+  margin: 0 0 4px;
+  font-family: "Palanquin Dark", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+.product_info p {
+  margin: 0;
+  max-width: 230px;
+  font-family: "Palanquin", sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 1.25;
+}
+
+.category_icon {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+}
+
+.category_bar {
+  min-height: 72px;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: #f97316;
+  color: white;
 }
