@@ -76,24 +76,39 @@ function getCategoryTemplate() {
   `;
 }
 
-function getProductCardTemplate() {
+function getProductCardTemplate(index) {
   return `
     <div class="product_card">
       <img 
-        src="./assets/imgs/veggie_mushroom_black_burger.jpg" 
+        src="./assets/imgs/${products[index].img}" 
         alt=""
         class="product_img"
       >
 
       <div class="product_info">
-        <h3>Veggie mushroom black burger</h3>
-        <p>Mixed green salad, Tomatoes, Edamame, Mushrooms</p>
+        <h3>${products[index].name}</h3>
+
+        <p>${products[index].description}</p>
       </div>
 
       <div class="product_action">
-        <span class="product_price">16,90€</span>
-        <button class="add_btn">Add to basket</button>
+        <span class="product_price">
+          ${products[index].price.toFixed(2).replace(".", ",")}€
+        </span>
+
+        <button class="add_btn">
+          Add to basket
+        </button>
       </div>
+    </div>
+  `;
+}
+
+function getCategoryTemplate(categoryIndex) {
+  return `
+    <div class="category_bar">
+      <img src="./assets/icons/${categories[categoryIndex].icon}" alt="" class="category_icon">
+      <h2>${categories[categoryIndex].name}</h2>
     </div>
   `;
 }
