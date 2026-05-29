@@ -117,3 +117,5 @@ const categories = [
     icon: "salad_logo.svg",
   },
 ];
+
+let basket = [];

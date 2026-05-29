@@ -265,3 +265,13 @@
 .category_bar {
   width: calc(100% + 368px);
 }
+
+.basket_item {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+  font-family: "Palanquin", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+}
