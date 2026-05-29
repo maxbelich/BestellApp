@@ -136,15 +136,46 @@ function getBasketTemplate() {
 function getBasketItemTemplate(index) {
   return `
     <div class="basket_item">
-      <span>
-        ${basket[index].amount} x ${basket[index].name}
-      </span>
+      <div class="basket_item_info">
+        <span class="basket_item_name">${basket[index].amount} x ${basket[index].name}</span>
+        <span class="basket_item_price">${(basket[index].price * basket[index].amount).toFixed(2).replace(".", ",")}€</span>
+      </div>
+      <div class="basket_controls">
 
-      <span>
-        ${(basket[index].price * basket[index].amount)
-          .toFixed(2)
-          .replace(".", ",")}€
-      </span>
+  <div class="basket_control_left">
+    ${
+      basket[index].amount === 1
+        ? `
+          <img
+            onclick="removeItem(${index})"
+            src="./assets/icons/delete.svg"
+            class="basket_icon"
+            alt=""
+          >
+        `
+        : `
+          <button onclick="decreaseAmount(${index})">-</button>
+        `
+    }
+  </div>
+
+  <span>${basket[index].amount}</span>
+
+  <button onclick="increaseAmount(${index})">+</button>
+
+</div>
+ ${
+   basket[index].amount > 1
+     ? `
+            <img
+              onclick="removeItem(${index})"
+              src="./assets/icons/delete.svg"
+              class="basket_delete"
+              alt=""
+            >
+          `
+     : ""
+ }
     </div>
   `;
 }

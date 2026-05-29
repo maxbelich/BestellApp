@@ -241,17 +241,19 @@
 .basket_box {
   position: sticky;
   top: 24px;
-  background:  #333;
+  background: #333;
   color: white;
-  border-radius: 16px;
+  border-radius: 20px;
   padding: 24px;
 }
+
 .basket_box h2 {
-  margin-bottom: 24px;
+  margin: 0 0 24px;
   text-align: center;
-  color: white;
   font-family: "Palanquin Dark", sans-serif;
+  font-size: 24px;
   font-weight: 700;
+  color: white;
 }
 
 .basket_items p {
@@ -266,12 +268,84 @@
   width: calc(100% + 368px);
 }
 
-.basket_item {
+.basket_item {position: relative;
+  margin-bottom: 12px;
+  padding: 12px;
+  background: #fde8d7;
+  color: #333;
+  border-radius: 12px;
+}
+
+.basket_item_info {
   display: flex;
   justify-content: space-between;
   gap: 12px;
-  margin-bottom: 12px;
-  font-family: "Palanquin", sans-serif;
-  font-size: 14px;
+  font-family: "Palanquin Dark", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.basket_item_name {
+  max-width: 140px;
+  font-family: "Palanquin Dark", sans-serif;
+  font-size: 13px;
   font-weight: 600;
+}
+
+.basket_item_price {
+  white-space: nowrap;
+  font-family: "Palanquin Dark", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.basket_controls {
+  margin-top: 4px;
+  display: flex;
+  gap: 2px;
+  align-items: center;
+  font-family: "Palanquin", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.basket_controls button {
+  padding: 0;
+  border: none;
+  background: transparent;
+  font-family: "Palanquin Dark", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.basket_controls span {
+  font-family: "Palanquin", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.basket_icon {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.basket_delete {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+}
+
+.basket_control_left {
+  width: 16px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
