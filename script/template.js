@@ -2,7 +2,6 @@ function getMainTemplate() {
   return `
     <header id="header"></header>
     <section id="hero"></section>
-
     <section class="app_layout">
       <section id="menu_content"></section>
       <aside id="basket_content"></aside>
@@ -109,6 +108,18 @@ function getCategoryTemplate(categoryIndex) {
     <div class="category_bar">
       <img src="./assets/icons/${categories[categoryIndex].icon}" alt="" class="category_icon">
       <h2>${categories[categoryIndex].name}</h2>
+    </div>
+  `;
+}
+
+function getBasketTemplate() {
+  return `
+    <div class="basket_box">
+      <h2>Your Basket</h2>
+
+      <div class="basket_items">
+        <p>Your basket is empty.</p>
+      </div>
     </div>
   `;
 }

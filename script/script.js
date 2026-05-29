@@ -10,6 +10,7 @@ function renderMain() {
   renderHeader();
   renderHero();
   renderMenu();
+  renderBasket();
 }
 
 function renderHeader() {
@@ -44,4 +45,10 @@ function renderProductsByCategory(categoryIndex) {
       menuContentRef.innerHTML += getProductCardTemplate(productIndex);
     }
   }
+}
+
+function renderBasket() {
+  let basketContentRef = document.getElementById("basket_content");
+
+  basketContentRef.innerHTML = getBasketTemplate();
 }
