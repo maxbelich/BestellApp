@@ -49,6 +49,32 @@ function renderProductsByCategory(categoryIndex) {
 
 function renderBasket() {
   let basketContentRef = document.getElementById("basket_content");
-
   basketContentRef.innerHTML = getBasketTemplate();
+  renderBasketItems();
+}
+
+function addToBasket(index) {
+  let basketIndex = basket.findIndex(
+    (item) => item.name === products[index].name,
+  );
+
+  if (basketIndex === -1) {
+    basket.push({
+      name: products[index].name,
+      price: products[index].price,
+      amount: 1,
+    });
+  } else {
+    basket[basketIndex].amount++;
+  }
+
+  renderBasket();
+}
+
+function renderBasketItems() {
+  let basketItemsRef = document.getElementById("basket_items");
+  basketItemsRef.innerHTML = "";
+  for (let index = 0; index < basket.length; index++) {
+    basketItemsRef.innerHTML += getBasketItemTemplate(index);
+  }
 }

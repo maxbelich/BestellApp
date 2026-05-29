@@ -95,9 +95,9 @@ function getProductCardTemplate(index) {
           ${products[index].price.toFixed(2).replace(".", ",")}€
         </span>
 
-        <button class="add_btn">
-          Add to basket
-        </button>
+        <button onclick="addToBasket(${index})" class="add_btn">
+  Add to basket
+</button>
       </div>
     </div>
   `;
@@ -120,6 +120,31 @@ function getBasketTemplate() {
       <div class="basket_items">
         <p>Your basket is empty.</p>
       </div>
+    </div>
+  `;
+}
+
+function getBasketTemplate() {
+  return `
+    <div class="basket_box">
+      <h2>Your Basket</h2>
+      <div id="basket_items"></div>
+    </div>
+  `;
+}
+
+function getBasketItemTemplate(index) {
+  return `
+    <div class="basket_item">
+      <span>
+        ${basket[index].amount} x ${basket[index].name}
+      </span>
+
+      <span>
+        ${(basket[index].price * basket[index].amount)
+          .toFixed(2)
+          .replace(".", ",")}€
+      </span>
     </div>
   `;
 }
