@@ -78,3 +78,24 @@ function renderBasketItems() {
     basketItemsRef.innerHTML += getBasketItemTemplate(index);
   }
 }
+
+function increaseAmount(index) {
+  basket[index].amount++;
+
+  renderBasket();
+}
+
+function decreaseAmount(index) {
+  basket[index].amount--;
+
+  if (basket[index].amount <= 0) {
+    basket.splice(index, 1);
+  }
+
+  renderBasket();
+}
+
+function removeItem(index) {
+  basket.splice(index, 1);
+  renderBasket();
+}
