@@ -99,3 +99,27 @@ function removeItem(index) {
   basket.splice(index, 1);
   renderBasket();
 }
+
+function calculateSubtotal() {
+  let subtotal = 0;
+  for (let index = 0; index < basket.length; index++) {
+    subtotal += basket[index].price * basket[index].amount;
+  }
+  return subtotal;
+}
+
+function getDeliveryFee() {
+  if (basket.length === 0) {
+    return 4.99;
+  }
+
+  if (calculateSubtotal() >= 50) {
+    return 0;
+  }
+
+  return 4.99;
+}
+
+function calculateTotal() {
+  return calculateSubtotal() + getDeliveryFee();
+}
