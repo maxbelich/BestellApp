@@ -129,6 +129,7 @@ function getBasketTemplate() {
     <div class="basket_box">
       <h2>Your Basket</h2>
       <div id="basket_items"></div>
+      ${getBasketSummaryTemplate()}
     </div>
   `;
 }
@@ -176,6 +177,35 @@ function getBasketItemTemplate(index) {
           `
      : ""
  }
+    </div>
+  `;
+}
+
+function getBasketSummaryTemplate() {
+  return `
+    <div class="basket_summary">
+      <div class="basket_summary_row">
+        <span>Subtotal</span>
+        <span>${calculateSubtotal().toFixed(2).replace(".", ",")}€</span>
+      </div>
+      <div class="basket_summary_row">
+  <span>Delivery fee</span>
+  <span class="${getDeliveryFee() === 0 ? "free_delivery" : ""}">
+    ${
+      getDeliveryFee() === 0
+        ? "FREE"
+        : `${getDeliveryFee().toFixed(2).replace(".", ",")}€`
+    }
+  </span>
+</div>
+      <div class="basket_divider"></div>
+      <div class="basket_summary_row basket_total">
+        <span>Total</span>
+        <span>${calculateTotal().toFixed(2).replace(".", ",")}€</span>
+      </div>
+      <button class="buy_btn">
+        Buy now (${calculateTotal().toFixed(2).replace(".", ",")}€)
+      </button>
     </div>
   `;
 }

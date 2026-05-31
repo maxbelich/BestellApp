@@ -349,3 +349,44 @@
   justify-content: center;
   align-items: center;
 }
+
+.basket_summary {
+  margin-top: 24px;
+}
+.basket_summary_row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "Palanquin", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+}
+.basket_divider {
+  height: 2px;
+  margin: 12px 0;
+  background: white;
+}
+.basket_total {
+  font-family: "Palanquin Dark", sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+}
+.buy_btn {
+  width: 100%;
+  margin-top: 16px;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 999px;
+  background: #ff8000;
+  color: white;
+  font-family: "Palanquin Dark", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.free_delivery {
+  color: #52c41a;
+  font-family: "Palanquin Dark", sans-serif;
+  font-weight: 700;
+}
