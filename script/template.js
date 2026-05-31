@@ -129,7 +129,7 @@ function getBasketTemplate() {
     <div class="basket_box">
       <h2>Your Basket</h2>
       <div id="basket_items"></div>
-      ${getBasketSummaryTemplate()}
+      ${basket.length > 0 ? getBasketSummaryTemplate() : ""}
     </div>
   `;
 }
@@ -206,6 +206,16 @@ function getBasketSummaryTemplate() {
       <button class="buy_btn">
         Buy now (${calculateTotal().toFixed(2).replace(".", ",")}€)
       </button>
+    </div>
+  `;
+}
+
+function getEmptyBasketTemplate() {
+  return `
+    <div class="empty_basket">
+      <img src="./assets/icons/shopping_cart.svg" alt="" class="empty_basket_icon">
+      <p>Your basket is empty.</p>
+      <span>Add some delicious food!</span>
     </div>
   `;
 }

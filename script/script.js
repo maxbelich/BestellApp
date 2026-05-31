@@ -74,6 +74,10 @@ function addToBasket(index) {
 function renderBasketItems() {
   let basketItemsRef = document.getElementById("basket_items");
   basketItemsRef.innerHTML = "";
+  if (basket.length === 0) {
+    basketItemsRef.innerHTML = getEmptyBasketTemplate();
+    return;
+  }
   for (let index = 0; index < basket.length; index++) {
     basketItemsRef.innerHTML += getBasketItemTemplate(index);
   }
