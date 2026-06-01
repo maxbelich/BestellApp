@@ -50,9 +50,23 @@ function getHeroTemplate() {
       </div>
 
       <div class="restaurant_info">
-        <h1>
-  <span class="burger_text">Burger</span>House
-        </h1>
+        <div class="restaurant_headline">
+  <h1>
+    <span class="burger_text">Burger</span>House
+  </h1>
+
+  <div class="rating_badge">
+    <img
+      src="./assets/icons/star.svg"
+      alt="rating star"
+      class="rating_star"
+    >
+
+    <span class="rating_value">4,1</span>
+
+    <span class="rating_count">(317)</span>
+  </div>
+</div>
         <p>
           The best of Burgers, Pizza, and Greens, all in one great place.
         </p>

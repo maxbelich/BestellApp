@@ -499,3 +499,39 @@
   font-size: 28px;
   font-weight: 700;
 }
+
+.restaurant_headline {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+}
+
+.rating_badge {
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: #f4cdb3;
+
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.rating_star {
+  width: 18px;
+  height: 18px;
+}
+
+.rating_value {
+  font-family: "Palanquin Dark", sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #363534;
+}
+
+.rating_count {
+  font-family: "Palanquin", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: #666;
+}
