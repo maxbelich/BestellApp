@@ -7,6 +7,7 @@ function renderMain() {
 
   mainContentRef.innerHTML = getMainTemplate();
 
+  loadBasket();
   renderHeader();
   renderHero();
   renderMenu();
@@ -74,6 +75,7 @@ function addToBasket(index) {
     basket[basketIndex].amount++;
   }
 
+  saveBasket();
   renderBasket();
 }
 
@@ -92,6 +94,7 @@ function renderBasketItems() {
 function increaseAmount(index) {
   basket[index].amount++;
 
+  saveBasket();
   renderBasket();
 }
 
@@ -102,11 +105,14 @@ function decreaseAmount(index) {
     basket.splice(index, 1);
   }
 
+  saveBasket();
   renderBasket();
 }
 
 function removeItem(index) {
   basket.splice(index, 1);
+
+  saveBasket();
   renderBasket();
 }
 
@@ -132,4 +138,16 @@ function getDeliveryFee() {
 
 function calculateTotal() {
   return calculateSubtotal() + getDeliveryFee();
+}
+
+function saveBasket() {
+  localStorage.setItem("basket", JSON.stringify(basket));
+}
+
+function loadBasket() {
+  let storedBasket = localStorage.getItem("basket");
+
+  if (storedBasket) {
+    basket = JSON.parse(storedBasket);
+  }
 }
