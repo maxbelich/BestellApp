@@ -7,6 +7,7 @@ function getMainTemplate() {
       <aside id="basket_content"></aside>
     </section>
     <footer id="footer"></footer>
+    <dialog id="order_dialog"></dialog>
   `;
 }
 
@@ -191,9 +192,9 @@ function getBasketSummaryTemplate() {
         <span>Total</span>
         <span>${calculateTotal().toFixed(2).replace(".", ",")}€</span>
       </div>
-      <button class="buy_btn">
-        Buy now (${calculateTotal().toFixed(2).replace(".", ",")}€)
-      </button>
+      <button onclick="confirmOrder()" class="buy_btn">
+  Buy now (${calculateTotal().toFixed(2).replace(".", ",")}€)
+</button>
     </div>
   `;
 }
@@ -214,6 +215,17 @@ function getFooterTemplate() {
       <span>© 2025 BurgerHouse</span>
       <a href="#">Imprint</a>
       <a href="#">Cookie Preferences</a>
+    </div>
+  `;
+}
+
+function getOrderDialogTemplate() {
+  return `
+    <div class="order_dialog_content">
+      <button onclick="closeOrderDialog()" class="dialog_close_btn">×</button>
+      <img src="./assets/icons/confirmed_truck.svg" alt="" class="order_dialog_icon">
+      <h2>Order confirmed!</h2>
+      <p>Your food is on the way!</p>
     </div>
   `;
 }
