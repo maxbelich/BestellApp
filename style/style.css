@@ -181,6 +181,9 @@
 }
 
 #basket_content {
+  position: sticky;
+  top: 0;
+  align-self: flex-start;
   background: #333;
   color: white;
   border-radius: 20px 0 0 20px;
@@ -239,7 +242,6 @@
 }
 
 .basket_box {
-  position: sticky;
   top: 24px;
   background: #333;
   color: white;
