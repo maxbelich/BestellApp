@@ -151,3 +151,18 @@ function loadBasket() {
     basket = JSON.parse(storedBasket);
   }
 }
+
+function confirmOrder() {
+  let orderDialogRef = document.getElementById("order_dialog");
+  orderDialogRef.innerHTML = getOrderDialogTemplate();
+  orderDialogRef.showModal();
+  basket = [];
+  saveBasket();
+  renderBasket();
+  setTimeout(closeOrderDialog, 2000);
+}
+
+function closeOrderDialog() {
+  let orderDialogRef = document.getElementById("order_dialog");
+  orderDialogRef.close();
+}
