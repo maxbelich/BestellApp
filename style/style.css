@@ -414,3 +414,25 @@
   font-size: 14px;
   font-weight: 500;
 }
+
+#footer {
+  background: #f97316;
+}
+.footer_content {
+  min-height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 64px;
+  color: white;
+  font-family: "Palanquin", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+}
+.footer_content a {
+  color: white;
+  text-decoration: none;
+}
+.footer_content a:hover {
+  text-decoration: underline;
+}

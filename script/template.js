@@ -6,6 +6,7 @@ function getMainTemplate() {
       <section id="menu_content"></section>
       <aside id="basket_content"></aside>
     </section>
+    <footer id="footer"></footer>
   `;
 }
 
@@ -203,6 +204,16 @@ function getEmptyBasketTemplate() {
       <img src="./assets/icons/shopping_cart.svg" alt="" class="empty_basket_icon">
       <p>Your basket is empty.</p>
       <span>Add some delicious food!</span>
+    </div>
+  `;
+}
+
+function getFooterTemplate() {
+  return `
+    <div class="footer_content">
+      <span>© 2025 BurgerHouse</span>
+      <a href="#">Imprint</a>
+      <a href="#">Cookie Preferences</a>
     </div>
   `;
 }

@@ -11,6 +11,7 @@ function renderMain() {
   renderHero();
   renderMenu();
   renderBasket();
+  renderFooter();
 }
 
 function renderHeader() {
@@ -23,6 +24,11 @@ function renderHero() {
   const heroRef = document.getElementById("hero");
 
   heroRef.innerHTML = getHeroTemplate();
+}
+
+function renderFooter() {
+  let footerRef = document.getElementById("footer");
+  footerRef.innerHTML = getFooterTemplate();
 }
 
 function renderMenu() {
