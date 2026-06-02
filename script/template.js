@@ -7,6 +7,8 @@ function getMainTemplate() {
       <aside id="basket_content"></aside>
     </section>
     <footer id="footer"></footer>
+    <nav id="mobile_bottom_nav"></nav>
+    <dialog id="mobile_basket_dialog"></dialog>
     <dialog id="order_dialog"></dialog>
   `;
 }
@@ -126,7 +128,9 @@ function getBasketTemplate() {
   return `
     <div class="basket_box">
       <h2>Your Basket</h2>
-      <div id="basket_items"></div>
+      <div class="basket_items">
+        ${getBasketItemsTemplate()}
+      </div>
       ${basket.length > 0 ? getBasketSummaryTemplate() : ""}
     </div>
   `;
@@ -236,5 +240,50 @@ function getOrderDialogTemplate() {
       <h2>Order confirmed!</h2>
       <p>Your food is on the way!</p>
     </div>
+  `;
+}
+
+function getMobileBasketDialogTemplate() {
+  return `
+    <div class="mobile_basket_dialog_content">
+      <button onclick="closeMobileBasket()" class="mobile_dialog_close_btn">x</button>
+      ${getBasketTemplate()}
+    </div>
+  `;
+}
+
+function getBasketItemsTemplate() {
+  if (basket.length === 0) {
+    return getEmptyBasketTemplate();
+  }
+
+  let basketItemsHTML = "";
+
+  for (let index = 0; index < basket.length; index++) {
+    basketItemsHTML += getBasketItemTemplate(index);
+  }
+
+  return basketItemsHTML;
+}
+
+function getMobileBottomNavTemplate() {
+  return `
+    <a href="#header" class="mobile_nav_item">
+      <img src="./assets/icons/home.svg" alt="" class="mobile_nav_icon mobile_nav_icon_default">
+      <img src="./assets/icons/home_active.svg" alt="" class="mobile_nav_icon mobile_nav_icon_active">
+    </a>
+    <a href="#hero" class="mobile_nav_item">
+      <img src="./assets/icons/profile.svg" alt="" class="mobile_nav_icon mobile_nav_icon_default">
+      <img src="./assets/icons/profile_active.svg" alt="" class="mobile_nav_icon mobile_nav_icon_active">
+    </a>
+    <a href="#menu_content" class="mobile_nav_item">
+      <img src="./assets/icons/sign.svg" alt="" class="mobile_nav_icon mobile_nav_icon_default">
+      <img src="./assets/icons/sign_active.svg" alt="" class="mobile_nav_icon mobile_nav_icon_active">
+    </a>
+    <button onclick="openMobileBasket()" class="mobile_nav_item mobile_cart_btn">
+      <img src="./assets/icons/shopping_cart.svg" alt="" class="mobile_nav_icon mobile_nav_icon_default">
+      <img src="./assets/icons/shopping_cart_active.svg" alt="" class="mobile_nav_icon mobile_nav_icon_active">
+      ${getBasketAmount() > 0 ? `<span class="mobile_cart_counter">${getBasketAmount()}</span>` : ""}
+    </button>
   `;
 }
