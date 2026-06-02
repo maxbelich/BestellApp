@@ -76,20 +76,6 @@ function getHeroTemplate() {
   `;
 }
 
-function getCategoryTemplate() {
-  return `
-    <div class="category_bar">
-      <img 
-        src="./assets/icons/burger_logo.svg" 
-        alt=""
-        class="category_icon"
-      >
-
-      <h2>Burger</h2>
-    </div>
-  `;
-}
-
 function getProductCardTemplate(index) {
   return `
     <div class="product_card">
@@ -110,8 +96,8 @@ function getProductCardTemplate(index) {
           ${products[index].price.toFixed(2).replace(".", ",")}€
         </span>
 
-        <button onclick="addToBasket(${index})" class="add_btn">
-  Add to basket
+        <button onclick="addToBasket(${index})" class="add_btn ${getProductAmountInBasket(index) > 0 ? "added_btn" : ""}">
+  ${getProductAmountInBasket(index) > 0 ? `Added ${getProductAmountInBasket(index)}` : "Add to basket"}
 </button>
       </div>
     </div>

@@ -77,7 +77,7 @@
 }
 
 .restaurant_info {
-  padding: 24px;
+  padding: 48px 24px 48px;
   text-align: center;
 }
 
@@ -98,28 +98,33 @@
   font-family: "Palanquin", sans-serif;
   font-size: 24px;
   font-weight: 700;
-  color: #363534
+  color: #363534;
+  margin-top: 24px;
 }
 
 .category_bar {
-  height: 56px;
+  min-height: 64px;
   padding: 0 24px;
   display: flex;
   align-items: center;
-  gap: 12px;
-  background: #f26b1d;
+  gap: 20px;
+  background: #f97316;
   color: white;
+  overflow: visible;
 }
 
 .category_icon {
-  width: 40px;
-  height: 40px;
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+  margin-top: -8px;
+  margin-bottom: -8px;
 }
 
 .product_card {
   width: 100%;
   max-width: 560px;
-  margin: 12px 0;
+  margin: 16px 0;
   padding: 12px;
   display: grid;
   grid-template-columns: 130px 1fr 90px;
@@ -174,10 +179,19 @@
   border: none;
   border-radius: 999px;
   background: white;
+  color: #363534;
   font-family: "Palanquin Dark", sans-serif;
   font-size: 10px;
   font-weight: 600;
   cursor: pointer;
+}
+
+.add_btn:hover {
+  color: #f97316;
+}
+
+.added_btn {
+  color: #f97316;
 }
 
 #basket_content {
@@ -204,8 +218,8 @@
 
 .category_bar h2 {
   font-family: "Palanquin Dark", sans-serif;
+  font-size: 24px;
   font-weight: 700;
-  font-size: 20px;
 }
 
 .product_info h3 {
@@ -226,9 +240,13 @@
 }
 
 .category_icon {
-  width: 56px;
-  height: 56px;
+  width: 90px;
+  height: 90px;
   object-fit: contain;
+  margin-top: -16px;
+  margin-bottom: -12px;
+  position: relative;
+  z-index: 2;
 }
 
 .category_bar {
@@ -239,6 +257,7 @@
   gap: 16px;
   background: #f97316;
   color: white;
+  margin-top: 32px;
 }
 
 .basket_box {
@@ -268,6 +287,15 @@
 
 .category_bar {
   width: calc(100% + 368px);
+  position: relative;
+  height: 56px;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: #f97316;
+  color: white;
+  overflow: visible;
 }
 
 .basket_item {position: relative;
@@ -432,6 +460,7 @@
   font-family: "Palanquin", sans-serif;
   font-size: 16px;
   font-weight: 500;
+  margin-top: 24px;
 }
 
 .footer_content a {
