@@ -13,6 +13,7 @@ function renderMain() {
   renderMenu();
   renderBasket();
   renderFooter();
+  renderMobileBottomNav();
 }
 
 function renderHeader() {
@@ -57,7 +58,9 @@ function renderProductsByCategory(categoryIndex) {
 function renderBasket() {
   let basketContentRef = document.getElementById("basket_content");
   basketContentRef.innerHTML = getBasketTemplate();
-  renderBasketItems();
+
+  updateMobileBasketDialog();
+  renderMobileBottomNav();
 }
 
 function addToBasket(index) {
@@ -189,4 +192,36 @@ function getProductAmountInBasket(index) {
     return 0;
   }
   return basket[basketIndex].amount;
+}
+
+function openMobileBasket() {
+  let mobileBasketDialogRef = document.getElementById("mobile_basket_dialog");
+  mobileBasketDialogRef.innerHTML = getMobileBasketDialogTemplate();
+  mobileBasketDialogRef.showModal();
+}
+
+function closeMobileBasket() {
+  let mobileBasketDialogRef = document.getElementById("mobile_basket_dialog");
+  mobileBasketDialogRef.close();
+}
+
+function updateMobileBasketDialog() {
+  let mobileBasketDialogRef = document.getElementById("mobile_basket_dialog");
+
+  if (mobileBasketDialogRef.open) {
+    mobileBasketDialogRef.innerHTML = getMobileBasketDialogTemplate();
+  }
+}
+
+function renderMobileBottomNav() {
+  let mobileBottomNavRef = document.getElementById("mobile_bottom_nav");
+  mobileBottomNavRef.innerHTML = getMobileBottomNavTemplate();
+}
+
+function getBasketAmount() {
+  let amount = 0;
+  for (let index = 0; index < basket.length; index++) {
+    amount += basket[index].amount;
+  }
+  return amount;
 }

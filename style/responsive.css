@@ -1,0 +1,377 @@
+@media screen and (min-width: 1440px) {
+  .app_layout,
+  .hero_content,
+  .header_content,
+  .footer_content {
+    padding-left: max(24px, calc((100vw - 1440px) / 2));
+    padding-right: max(24px, calc((100vw - 1440px) / 2));
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .app_layout {
+    display: block;
+  }
+
+  #basket_content {
+    display: none;
+  }
+
+  #menu_content {
+    width: 100%;
+    padding-right: 0;
+  }
+
+  .category_bar {
+    width: 100%;
+  }
+
+  #mobile_bottom_nav {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  #mobile_bottom_nav {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    z-index: 20;
+    height: 64px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: #333;
+    border-radius: 0;
+  }
+
+  #mobile_bottom_nav a,
+  #mobile_bottom_nav button {
+    width: 44px;
+    height: 44px;
+    border: none;
+    background: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+  }
+
+  #mobile_bottom_nav img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+  }
+
+  .mobile_cart_btn {
+    position: relative;
+  }
+
+  .mobile_cart_counter {
+    position: absolute;
+    top: 4px;
+    right: 6px;
+    min-width: 18px;
+    height: 18px;
+    padding: 0 5px;
+    border-radius: 999px;
+    background: #ff8000;
+    border: 2px solid #333;
+    color: white;
+    font-family: "Palanquin Dark", sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+  }
+
+  body {
+    padding-bottom: 64px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  body {
+    background: #d9d9d9;
+    padding-bottom: 58px;
+  }
+
+  .header_content {
+    height: 68px;
+    padding: 0 16px;
+  }
+
+  .header_logo {
+    height: 34px;
+  }
+
+  .header_menu_btn {
+    display: none;
+  }
+
+  .hero_content {
+    padding-bottom: 24px;
+  }
+
+  .hero_img {
+    width: calc(100% - 32px);
+    height: 300px;
+    margin: 16px;
+    border-radius: 16px;
+    object-fit: cover;
+  }
+
+  .hero_logo_wrapper {
+    width: 120px;
+    height: 120px;
+    margin: -60px auto 0;
+  }
+
+  .hero_logo {
+    width: 96px;
+    height: 96px;
+  }
+
+  .restaurant_info {
+    padding: 20px 16px 16px;
+  }
+
+  .restaurant_headline {
+    flex-direction: column-reverse;
+    gap: 12px;
+  }
+
+  .restaurant_info h1 {
+    font-size: 32px;
+    line-height: 1;
+    margin: 0;
+  }
+
+  .restaurant_info p {
+    max-width: 260px;
+    margin: 0 auto;
+    padding: 0;
+    font-size: 14px;
+    line-height: 1.2;
+  }
+
+  .rating_badge {
+    padding: 6px 10px;
+    border-radius: 8px;
+  }
+
+  .rating_star {
+    width: 14px;
+    height: 14px;
+  }
+
+  .rating_value {
+    font-size: 14px;
+  }
+
+  .rating_count {
+    font-size: 13px;
+  }
+
+  .app_layout {
+    display: block;
+  }
+
+  #menu_content {
+    width: 100%;
+    padding-right: 0;
+  }
+
+  #basket_content {
+    display: none;
+  }
+
+  .category_bar {
+    width: 100%;
+    min-height: 50px;
+    padding: 0 16px;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .category_icon {
+    width: 54px;
+    height: 54px;
+    margin: -12px 0 0;
+  }
+
+  .category_bar h2 {
+    font-size: 20px;
+    line-height: 1;
+  }
+
+  .product_card {
+    width: auto;
+    max-width: none;
+    margin: 16px 24px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border-radius: 14px;
+  }
+
+  .product_img {
+    width: 100%;
+    height: 120px;
+    border-radius: 12px;
+    object-fit: cover;
+  }
+
+  .product_info {
+    padding-top: 0;
+    align-self: auto;
+  }
+
+  .product_info h3 {
+    margin: 0 0 6px;
+    font-size: 18px;
+    line-height: 1.1;
+  }
+
+  .product_info p {
+    max-width: none;
+    margin: 0;
+    font-size: 12px;
+    line-height: 1.2;
+  }
+
+  .product_action {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .product_price {
+    font-size: 16px;
+  }
+
+  .add_btn {
+    padding: 6px 12px;
+    font-size: 12px;
+    white-space: nowrap;
+  }
+
+  #mobile_bottom_nav {
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 64px;
+    border-radius: 0;
+  }
+
+  #mobile_bottom_nav a,
+  #mobile_bottom_nav button {
+    width: 44px;
+    height: 44px;
+  }
+
+  #mobile_bottom_nav img {
+    width: 22px;
+    height: 22px;
+  }
+
+  #footer {
+    padding: 1px 16px 24px;
+    background: #f97316;
+  }
+
+  .footer_content {
+    min-height: auto;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+    font-size: 14px;
+  }
+
+  #order_dialog,
+  #mobile_basket_dialog {
+    width: calc(100vw - 24px);
+    max-width: 320px;
+    box-sizing: border-box;
+  }
+
+  .order_dialog_content,
+  .mobile_basket_dialog_content {
+    width: 100%;
+    max-width: 320px;
+    box-sizing: border-box;
+    padding: 24px 16px;
+    border-radius: 20px;
+  }
+
+  .order_dialog_content h2 {
+    font-size: 28px;
+    line-height: 1.1;
+    text-align: center;
+  }
+
+  .order_dialog_content p {
+    font-size: 20px;
+    line-height: 1.15;
+    text-align: center;
+  }
+
+  .order_dialog_icon {
+    width: 56px;
+    height: 56px;
+  }
+
+  .dialog_close_btn,
+  .mobile_dialog_close_btn {
+    top: 12px;
+    right: 12px;
+    font-size: 28px;
+  }
+
+  .mobile_basket_dialog_content .basket_box {
+    padding: 8px;
+  }
+
+  .mobile_basket_dialog_content .basket_item {
+    padding: 10px;
+  }
+
+  .mobile_basket_dialog_content .basket_box h2 {
+    font-size: 24px;
+  }
+
+  .category_bar {
+    width: 100%;
+    min-height: 52px;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    background: #f97316;
+    overflow: visible;
+  }
+
+  .category_bar h2 {
+    display: none;
+  }
+
+  .category_icon {
+    width: 76px;
+    height: 76px;
+    margin: 0 0 -2px;
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+}
+
