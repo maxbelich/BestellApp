@@ -71,8 +71,12 @@ function addToBasket(index) {
       price: products[index].price,
       amount: 1,
     });
+
+    lastAddedProductIndex = index;
   } else {
     basket[basketIndex].amount++;
+
+    lastAddedProductIndex = null;
   }
 
   saveBasket();
@@ -95,6 +99,7 @@ function renderBasketItems() {
 function increaseAmount(index) {
   basket[index].amount++;
 
+  lastAddedProductIndex = null;
   saveBasket();
   renderBasket();
   renderMenu();
@@ -107,6 +112,7 @@ function decreaseAmount(index) {
     basket.splice(index, 1);
   }
 
+  lastAddedProductIndex = null;
   saveBasket();
   renderBasket();
   renderMenu();
@@ -115,6 +121,7 @@ function decreaseAmount(index) {
 function removeItem(index) {
   basket.splice(index, 1);
 
+  lastAddedProductIndex = null;
   saveBasket();
   renderBasket();
   renderMenu();
@@ -161,6 +168,8 @@ function confirmOrder() {
   orderDialogRef.innerHTML = getOrderDialogTemplate();
   orderDialogRef.showModal();
   basket = [];
+
+  lastAddedProductIndex = null;
   saveBasket();
   renderBasket();
   renderMenu();

@@ -119,3 +119,5 @@ const categories = [
 ];
 
 let basket = [];
+
+let lastAddedProductIndex = null;
