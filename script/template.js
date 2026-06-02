@@ -96,8 +96,17 @@ function getProductCardTemplate(index) {
           ${products[index].price.toFixed(2).replace(".", ",")}€
         </span>
 
-        <button onclick="addToBasket(${index})" class="add_btn ${getProductAmountInBasket(index) > 0 ? "added_btn" : ""}">
-  ${getProductAmountInBasket(index) > 0 ? `Added ${getProductAmountInBasket(index)}` : "Add to basket"}
+        <button
+  onclick="addToBasket(${index})"
+  class="add_btn
+  ${getProductAmountInBasket(index) > 0 ? "added_btn" : ""}
+  ${lastAddedProductIndex === index ? "added_btn_animation" : ""}"
+>
+  ${
+    getProductAmountInBasket(index) > 0
+      ? `Added ${getProductAmountInBasket(index)}`
+      : "Add to basket"
+  }
 </button>
       </div>
     </div>
