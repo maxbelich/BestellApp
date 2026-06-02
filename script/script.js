@@ -77,6 +77,7 @@ function addToBasket(index) {
 
   saveBasket();
   renderBasket();
+  renderMenu();
 }
 
 function renderBasketItems() {
@@ -96,6 +97,7 @@ function increaseAmount(index) {
 
   saveBasket();
   renderBasket();
+  renderMenu();
 }
 
 function decreaseAmount(index) {
@@ -107,6 +109,7 @@ function decreaseAmount(index) {
 
   saveBasket();
   renderBasket();
+  renderMenu();
 }
 
 function removeItem(index) {
@@ -114,6 +117,7 @@ function removeItem(index) {
 
   saveBasket();
   renderBasket();
+  renderMenu();
 }
 
 function calculateSubtotal() {
@@ -159,10 +163,21 @@ function confirmOrder() {
   basket = [];
   saveBasket();
   renderBasket();
+  renderMenu();
   setTimeout(closeOrderDialog, 2000);
 }
 
 function closeOrderDialog() {
   let orderDialogRef = document.getElementById("order_dialog");
   orderDialogRef.close();
+}
+
+function getProductAmountInBasket(index) {
+  let basketIndex = basket.findIndex(
+    (item) => item.name === products[index].name,
+  );
+  if (basketIndex === -1) {
+    return 0;
+  }
+  return basket[basketIndex].amount;
 }
