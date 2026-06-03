@@ -10,7 +10,7 @@ const products = [
   {
     category: "Burger",
     name: "All meat burger",
-    description: "Beef, Bacon, Dill pickles, Smoked cheese, Ketchup, BBQ souse",
+    description: "Beef, Bacon, Dill pickles, Smoked cheese, Ketchup, BBQ sauce",
     price: 15.9,
     img: "all_meat_burger.jpg",
   },
@@ -85,7 +85,7 @@ const products = [
     category: "Salad",
     name: "Green Salad with sea food",
     description:
-      "Mixed greens, Cherry tomatoes, Red onion, Mussles, Squid rings, Shrimp, Dijon mustard-lemon dressing with dill",
+      "Mixed greens, Cherry tomatoes, Red onion, Mussels, Squid rings, Shrimp, Dijon mustard-lemon dressing with dill",
     price: 16.9,
     img: "green_salad_with_sea_food.jpg",
   },
