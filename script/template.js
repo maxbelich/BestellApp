@@ -335,7 +335,7 @@ function getMobileBottomNavTemplate() {
       <img 
         src="./assets/icons/shopping_cart_active.svg" 
         alt="" 
-        class="mobile_nav_icon mobile_nav_icon_active>
+        class="mobile_nav_icon mobile_nav_icon_active">
 
       ${
         getBasketAmount() > 0
