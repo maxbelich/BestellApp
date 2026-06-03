@@ -68,14 +68,15 @@ function renderBasket() {
   basketContentRef.innerHTML = getBasketTemplate();
 
   updateMobileBasketDialog();
-  renderMobileBottomNav();
 }
 
 /** add product to basket or increase amount */
 function addToBasket(index) {
-  let basketIndex = basket.findIndex(
-    (item) => item.name === products[index].name,
-  );
+  let amountBefore = getProductAmountInBasket(index);
+
+  let basketIndex = basket.findIndex((item) => {
+    return item.name === products[index].name;
+  });
 
   if (basketIndex === -1) {
     basket.push({
@@ -83,31 +84,29 @@ function addToBasket(index) {
       price: products[index].price,
       amount: 1,
     });
-
-    lastAddedProductIndex = index;
   } else {
     basket[basketIndex].amount++;
-
-    lastAddedProductIndex = null;
   }
 
-  saveBasket();
-  renderBasket();
-  renderMenu();
+  saveAndRenderBasket();
+  updateAddButtonAfterAdd(index, amountBefore);
 }
 
 /** increase amount of one basket item */
 function increaseAmount(index) {
+  let productIndex = getProductIndexFromBasketItem(index);
+
   basket[index].amount++;
 
   lastAddedProductIndex = null;
-  saveBasket();
-  renderBasket();
-  renderMenu();
+  saveAndRenderBasket();
+  renderAddButton(productIndex);
 }
 
 /** decrease amount of one basket item and removes if amount is zero */
 function decreaseAmount(index) {
+  let productIndex = getProductIndexFromBasketItem(index);
+
   basket[index].amount--;
 
   if (basket[index].amount <= 0) {
@@ -115,19 +114,21 @@ function decreaseAmount(index) {
   }
 
   lastAddedProductIndex = null;
-  saveBasket();
-  renderBasket();
-  renderMenu();
+
+  saveAndRenderBasket();
+  renderAddButton(productIndex);
 }
 
 /** remove one item from basket */
 function removeItem(index) {
+  let productIndex = getProductIndexFromBasketItem(index);
+
   basket.splice(index, 1);
 
   lastAddedProductIndex = null;
-  saveBasket();
-  renderBasket();
-  renderMenu();
+
+  saveAndRenderBasket();
+  renderAddButton(productIndex);
 }
 
 /** calculate subtotal of all basket items */
@@ -173,16 +174,23 @@ function loadBasket() {
 
 /** confirm order and clear basket */
 function confirmOrder() {
+  closeMobileBasket();
+
+  basket = [];
+  lastAddedProductIndex = null;
+
+  saveAndRenderBasket();
+  renderAllAddButtons();
+  openOrderDialog();
+
+  setTimeout(closeOrderDialog, 3000);
+}
+
+/** open order confirm dialog */
+function openOrderDialog() {
   let orderDialogRef = document.getElementById("order_dialog");
   orderDialogRef.innerHTML = getOrderDialogTemplate();
   orderDialogRef.showModal();
-  basket = [];
-
-  lastAddedProductIndex = null;
-  saveBasket();
-  renderBasket();
-  renderMenu();
-  setTimeout(closeOrderDialog, 2000);
 }
 
 /** close confirm dialog */
@@ -238,3 +246,75 @@ function getBasketAmount() {
   }
   return amount;
 }
+
+/** save basket and update basket UI */
+function saveAndRenderBasket() {
+  saveBasket();
+  renderBasket();
+  renderMobileCartCounter();
+}
+
+/** render add button and start animation */
+function renderAddButton(index, shouldAnimate = false) {
+  let addButtonContainer = document.getElementById(
+    `add_btn_container_${index}`,
+  );
+
+  if (addButtonContainer === null) {
+    return;
+  }
+
+  addButtonContainer.innerHTML = getAddButtonTemplate(index, shouldAnimate);
+}
+
+/** update add button after product added to basket */
+function updateAddButtonAfterAdd(index, amountBefore) {
+  if (amountBefore === 0) {
+    renderAddButton(index, true);
+
+    setTimeout(() => {
+      renderAddButton(index);
+    }, 400);
+  } else {
+    renderAddButton(index);
+  }
+}
+
+/** render all add buttons after basket reset */
+function renderAllAddButtons() {
+  for (let index = 0; index < products.length; index++) {
+    renderAddButton(index);
+  }
+}
+
+/** render only mobile cart counter */
+function renderMobileCartCounter() {
+  let counterContainerRef = document.getElementById(
+    "mobile_cart_counter_container",
+  );
+
+  if (counterContainerRef === null) {
+    return;
+  }
+
+  counterContainerRef.innerHTML = getMobileCartCounterTemplate();
+}
+
+/** ind product index using one basket item */
+function getProductIndexFromBasketItem(index) {
+  return products.findIndex((product) => {
+    return product.name === basket[index].name;
+  });
+}
+
+/** close mobilie basket dialog when viewport changes to dekstop */
+function closeMobileBasketOnDesktop() {
+  let mobileBasketDialog = document.getElementById("mobile_basket_dialog");
+
+  if (window.innerWidth > 900 && mobileBasketDialog.open) {
+    mobileBasketDialog.close();
+  }
+}
+
+/** listen to viewport */
+window.addEventListener("resize", closeMobileBasketOnDesktop);

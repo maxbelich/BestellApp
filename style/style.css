@@ -182,15 +182,13 @@
   position: sticky;
   top: 0;
   align-self: flex-start;
+  width: 360px;
+  max-height: 70vh;
+  flex-shrink: 0;
   background: #333;
   color: white;
   border-radius: 20px 0 0 20px;
-  margin-top: 0;
-  width: 360px;
-  flex-shrink: 0;
   padding: 24px;
-
-  max-height: 100vh;
   overflow: hidden;
 }
 
@@ -238,15 +236,13 @@
 }
 
 .basket_box {
-  top: 24px;
-  background: #333;
-  color: white;
-  border-radius: 20px;
-  padding: 24px;
-
-  max-height: calc(100vh - 48px);
+  height: 100%;
+  max-height: calc(70vh - 48px);
   display: flex;
   flex-direction: column;
+  overflow: hidden;
+  flex-shrink: 0;
+  color: white;
 }
 
 .basket_box h2 {
@@ -260,8 +256,25 @@
 
 .basket_items {
   flex: 1;
+  min-height: 0;
   overflow-y: auto;
-  padding-right: 6px;
+  padding-right: 10px;
+
+  scrollbar-width: thin;
+  scrollbar-color: #cfcfcf transparent;
+}
+
+.basket_items::-webkit-scrollbar {
+  width: 6px;
+}
+
+.basket_items::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.basket_items::-webkit-scrollbar-thumb {
+  background: #cfcfcf;
+  border-radius: 999px;
 }
 
 .basket_summary {
