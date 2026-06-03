@@ -27,12 +27,6 @@
   }
 
   #mobile_bottom_nav {
-    display: none;
-  }
-}
-
-@media screen and (max-width: 900px) {
-  #mobile_bottom_nav {
     position: fixed;
     left: 0;
     right: 0;
@@ -93,11 +87,40 @@
   body {
     padding-bottom: 64px;
   }
+    .mobile_basket_dialog_content {
+    width: min(90vw, 420px);
+    max-height: calc(100vh - 96px);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .mobile_basket_dialog_content .basket_box {
+    height: calc(100vh - 144px);
+    max-height: calc(100vh - 144px);
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+  }
+
+  .mobile_basket_dialog_content .basket_box h2 {
+    flex-shrink: 0;
+  }
+
+  .mobile_basket_dialog_content .basket_items {
+    flex: 1;
+    overflow-y: auto;
+    padding-right: 6px;
+  }
+
+  .mobile_basket_dialog_content .basket_summary {
+    flex-shrink: 0;
+    margin-top: 16px;
+  }
 }
 
 @media screen and (max-width: 500px) {
   body {
-    background: #d9d9d9;
     padding-bottom: 58px;
   }
 
@@ -191,25 +214,6 @@
     display: none;
   }
 
-  .category_bar {
-    width: 100%;
-    min-height: 50px;
-    padding: 0 16px;
-    justify-content: center;
-    gap: 8px;
-  }
-
-  .category_icon {
-    width: 54px;
-    height: 54px;
-    margin: -12px 0 0;
-  }
-
-  .category_bar h2 {
-    font-size: 20px;
-    line-height: 1;
-  }
-
   .product_card {
     width: auto;
     max-width: none;
@@ -235,14 +239,14 @@
 
   .product_info h3 {
     margin: 0 0 6px;
-    font-size: 18px;
+    font-size: 20px;
     line-height: 1.1;
   }
 
   .product_info p {
     max-width: none;
     margin: 0;
-    font-size: 12px;
+    font-size: 16px;
     line-height: 1.2;
   }
 
@@ -373,5 +377,27 @@
     object-fit: contain;
     flex-shrink: 0;
   }
-}
 
+  .mobile_basket_dialog_content .basket_box {
+    height: 80vh;
+    max-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    padding: 8px;
+  }
+
+  .mobile_basket_dialog_content .basket_box h2 {
+    flex-shrink: 0;
+  }
+
+  .mobile_basket_dialog_content .basket_items {
+    flex: 1;
+    overflow-y: auto;
+    padding-right: 6px;
+  }
+
+  .mobile_basket_dialog_content .basket_summary {
+    flex-shrink: 0;
+    margin-top: 16px;
+  }
+}

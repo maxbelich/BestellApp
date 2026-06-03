@@ -102,14 +102,6 @@
   margin-top: 24px;
 }
 
-.category_icon {
-  width: 72px;
-  height: 72px;
-  object-fit: contain;
-  margin-top: -8px;
-  margin-bottom: -8px;
-}
-
 .product_card {
   width: 100%;
   max-width: 720px;
@@ -133,20 +125,6 @@
 .product_info {
   align-self: start;
   padding-top: 4px;
-}
-
-.product_info h3 {
-  margin: 0 0 4px;
-  font-family: "Palanquin Dark", sans-serif;
-  font-size: 20px;
-  line-height: 1.1;
-}
-
-.product_info p {
-  margin: 0;
-  max-width: 340px;
-  font-size: 14px;
-  line-height: 1.25;
 }
 
 .product_action {
@@ -211,6 +189,9 @@
   width: 360px;
   flex-shrink: 0;
   padding: 24px;
+
+  max-height: 100vh;
+  overflow: hidden;
 }
 
 .app_layout {
@@ -232,7 +213,7 @@
 .product_info h3 {
   margin: 0 0 4px;
   font-family: "Palanquin Dark", sans-serif;
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 700;
   line-height: 1.1;
 }
@@ -241,7 +222,7 @@
   margin: 0;
   max-width: 230px;
   font-family: "Palanquin", sans-serif;
-  font-size: 12px;
+  font-size: 16px;
   font-weight: 500;
   line-height: 1.25;
 }
@@ -262,6 +243,10 @@
   color: white;
   border-radius: 20px;
   padding: 24px;
+
+  max-height: calc(100vh - 48px);
+  display: flex;
+  flex-direction: column;
 }
 
 .basket_box h2 {
@@ -271,6 +256,17 @@
   font-size: 28px;
   font-weight: 700;
   color: white;
+}
+
+.basket_items {
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 6px;
+}
+
+.basket_summary {
+  flex-shrink: 0;
+  margin-top: 24px;
 }
 
 .basket_items p {
@@ -342,14 +338,14 @@
   border: none;
   background: transparent;
   font-family: "Palanquin Dark", sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 700;
   cursor: pointer;
 }
 
 .basket_controls span {
   font-family: "Palanquin", sans-serif;
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 600;
 }
 
@@ -572,12 +568,6 @@
   background: transparent;
 }
 
-#mobile_basket_dialog {
-  border: none;
-  padding: 0;
-  background: transparent;
-}
-
 #mobile_basket_dialog::backdrop {
   background: rgba(0, 0, 0, 0.35);
 }
@@ -585,11 +575,19 @@
 .mobile_basket_dialog_content {
   width: min(90vw, 420px);
   max-height: 90vh;
-  overflow-y: auto;
+  overflow: hidden;
   position: relative;
   background: #333;
   border-radius: 20px;
   padding: 24px;
+}
+
+.mobile_basket_dialog_content .basket_box {
+  height: 75vh;
+  max-height: 75vh;
+  display: flex;
+  flex-direction: column;
+  padding: 8px;
 }
 
 .mobile_dialog_close_btn {
