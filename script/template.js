@@ -93,19 +93,28 @@ function getProductCardTemplate(index) {
           ${products[index].price.toFixed(2).replace(".", ",")}€
         </span>
 
-        <button
-          onclick="addToBasket(${index})"
-          class="add_btn
-            ${getProductAmountInBasket(index) > 0 ? "added_btn" : ""}
-            ${lastAddedProductIndex === index ? "added_btn_animation" : ""}">
-          ${
-            getProductAmountInBasket(index) > 0
-              ? `Added ${getProductAmountInBasket(index)}`
-              : "Add to basket"
-          }
-        </button>
+        <div id="add_btn_container_${index}">
+          ${getAddButtonTemplate(index)}
+        </div>
+        
       </div>
     </div>
+  `;
+}
+
+function getAddButtonTemplate(index, shouldAnimate = false) {
+  return `
+    <button
+      onclick="addToBasket(${index})"
+      class="add_btn
+        ${getProductAmountInBasket(index) > 0 ? "added_btn" : ""}
+        ${shouldAnimate ? "added_btn_animation" : ""}">
+      ${
+        getProductAmountInBasket(index) > 0
+          ? `Added ${getProductAmountInBasket(index)}`
+          : "Add to basket"
+      }
+    </button>
   `;
 }
 
@@ -337,11 +346,21 @@ function getMobileBottomNavTemplate() {
         alt="" 
         class="mobile_nav_icon mobile_nav_icon_active">
 
-      ${
-        getBasketAmount() > 0
-          ? `<span class="mobile_cart_counter">${getBasketAmount()}</span>`
-          : ""
-      }
+      <span id="mobile_cart_counter_container">
+        ${getMobileCartCounterTemplate()}
+      </span>
     </button>
+  `;
+}
+
+function getMobileCartCounterTemplate() {
+  if (getBasketAmount() === 0) {
+    return "";
+  }
+
+  return `
+    <span class="mobile_cart_counter">
+      ${getBasketAmount()}
+    </span>
   `;
 }
